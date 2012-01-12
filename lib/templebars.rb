@@ -1,0 +1,2 @@
+require 'templebars/rails'
+
