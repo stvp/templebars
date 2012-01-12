@@ -14,7 +14,7 @@ javascript_include_tag( "handlebars" )
 
 ## Precompiled templates
 
-`templebars` also allows you to precomile Handlebars templates and make them available globally in a `Templates` object. (This can be set via `Templebars::Rails::GLOBAL`) Create files with a "handlebars", "hjs", or "hb" extension inside of a `templates/` directory in any `assets/javascripts/` directory:
+`templebars` also allows you to precomile Handlebars templates and make them available globally in a `Templates` object. (This can be set via `Templebars::Rails::GLOBAL`) Create files with a "handlebars", "hbs", or "hb" extension inside of a `templates/` directory in any `assets/javascripts/` directory:
 
 ```
 app/assets/javascripts/templates/todo_item.js.handlebars
