@@ -7,8 +7,6 @@ module Templebars
     # Tilt template renderer for precompiling Handlebars templates and storing
     # them in a global Templates object.
     class HandlebarsTemplate < ::Tilt::Template
-      SETUP_GLOBAL = "('undefined' == typeof #{Templebars::Rails::GLOBAL}) && (#{Templebars::Rails::GLOBAL} = {})"
-
       def self.default_mime_type
         "application/javascript"
       end
@@ -18,10 +16,12 @@ module Templebars
       def prepare; end
 
       def evaluate( scope, locals, &block )
+        global = Templebars::Rails::GLOBAL
+        setup_global = "('undefined' == typeof #{global}) && (#{global} = {})"
         name = scope.logical_path.sub( /^templates\//, "" )
         precompiled_js = precompile( data )
-        template_declaration = "#{Templebars::Rails::GLOBAL}[\"#{name}\"] = Handlebars.template(#{precompiled_js});"
-        "#{SETUP_GLOBAL}\n#{template_declaration}\n"
+        template_declaration = "#{global}[\"#{name}\"] = Handlebars.template(#{precompiled_js});"
+        "#{setup_global}\n#{template_declaration}\n"
       end
 
       protected
