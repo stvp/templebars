@@ -7,7 +7,7 @@ module Templebars
     # Tilt template renderer for precompiling Handlebars templates and storing
     # them in a global Templates object.
     class HandlebarsTemplate < ::Tilt::Template
-      SETUP_GLOBAL = "#{Templebars::Rails::GLOBAL} || (#{Templebars::Rails::GLOBAL} = {});"
+      SETUP_GLOBAL = "('undefined' == typeof #{Templebars::Rails::GLOBAL}) && (#{Templebars::Rails::GLOBAL} = {})"
 
       def self.default_mime_type
         "application/javascript"
