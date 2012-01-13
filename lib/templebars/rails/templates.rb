@@ -35,7 +35,7 @@ module Templebars
       end
 
       def handlebars_js
-        path = File.join( File.dirname(__FILE__), "..", "..", "..", "vendor", "assets", "handlebars.js" )
+        path = File.join( File.dirname(__FILE__), "..", "..", "..", "vendor", "assets", "javascripts", "handlebars.js" )
         File.read( path )
       end
     end
