@@ -27,7 +27,7 @@ module Templebars
       protected
 
       def precompile( template )
-        runtime.call( "Handlebars.precompile", template )
+        runtime.call( "Handlebars.precompile", template, { data: {} } )
       end
 
       def runtime
