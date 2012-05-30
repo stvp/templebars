@@ -11,7 +11,7 @@ any `assets/javascripts/` directory. For example:
 You can then access it like any other JavaScript asset:
 
 ```ruby
-javascript_include_tag( "templates/todo_item" )
+javascript_include_tag("templates/todo_item")
 ```
 
 The above template would be available client-side as
@@ -26,10 +26,19 @@ pipeline via `handlebars`. You can include it in other JS files:
 //= require handlebars
 ```
 
+If you don't need to compile templates on the client side, you can
+replace the above with this to save space / time:
+
+```js
+//= require handlebars.runtime
+```
+
 You can also include it via a regular ol' `javascript_include_tag` call:
 
 ```ruby
-javascript_include_tag( "handlebars" )
+javascript_include_tag("handlebars")
+// or
+javascript_include_tag("handlebars.runtime")
 ```
 
 ## Installation
