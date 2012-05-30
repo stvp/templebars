@@ -1,6 +1,10 @@
 # templebars
 
-`templebars` allows you to precomile [Handlebars][handlebars] templates in Rails and make them available globally in a `Templates` object. (This can be set via `Templebars::Rails::GLOBAL`) Create files with a "handlebars", "hbs", or "hb" extension inside of a `templates/` directory in any `assets/javascripts/` directory:
+`templebars` allows you to precomile [Handlebars][handlebars] templates
+in Rails and make them available globally in a `Templates` object. (This
+can be set via `Templebars::Rails::GLOBAL`) Create files with a
+"handlebars" or "hbs" extension inside of a `templates/` directory in
+any `assets/javascripts/` directory. For example:
 
     app/assets/javascripts/templates/todo_item.js.handlebars
 
@@ -10,11 +14,13 @@ You can then access it like any other JavaScript asset:
 javascript_include_tag( "templates/todo_item" )
 ```
 
-The above template would be available client-side as `Templates.todo_item`.
+The above template would be available client-side as
+`Templates.todo_item`.
 
 ## Handlebars
 
-This gem also provides Handlebars 1.0.beta.6 to the Rails assert pipeline via `handlebars`. You can include it in other JS files:
+This gem also provides Handlebars 1.0.beta.6 to the Rails assert
+pipeline via `handlebars`. You can include it in other JS files:
 
 ```js
 //= require handlebars
