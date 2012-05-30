@@ -2,9 +2,7 @@
 
 `templebars` allows you to precomile [Handlebars][handlebars] templates in Rails and make them available globally in a `Templates` object. (This can be set via `Templebars::Rails::GLOBAL`) Create files with a "handlebars", "hbs", or "hb" extension inside of a `templates/` directory in any `assets/javascripts/` directory:
 
-```
-app/assets/javascripts/templates/todo_item.js.handlebars
-```
+    app/assets/javascripts/templates/todo_item.js.handlebars
 
 You can then access it like any other JavaScript asset:
 
