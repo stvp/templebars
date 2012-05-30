@@ -1,53 +1,63 @@
 # templebars
 
 `templebars` allows you to precomile [Handlebars][handlebars] templates
-in Rails and make them available globally in a `Templates` object. (This
-can be set via `Templebars::Rails::GLOBAL`) Create files with a
-"handlebars" or "hbs" extension inside of a `templates/` directory in
-any `assets/javascripts/` directory. For example:
+in Rails and make them available globally on the client-side in a
+`Templates` object.
 
-    app/assets/javascripts/templates/todo_item.js.handlebars
+## Adding Templebars to Rails 3.1+
 
-You can then access it like any other JavaScript asset:
+Add `templebars` to your `Gemfile` in the `assets` group:
 
 ```ruby
-javascript_include_tag("templates/todo_item")
+group :assets do
+  ...
+  gem 'templebars'
+end
 ```
 
-The above template would be available client-side as
-`Templates.todo_item`.
+And run `bundle install` to install it.
 
-## Handlebars
+Then, you'll need to include the Handlebars runtime in your JavaScript
+manifest (`app/assets/javascripts/application.js`):
 
-This gem also provides Handlebars 1.0.beta.6 to the Rails assert
-pipeline via `handlebars`. You can include it in other JS files:
-
-```js
-//= require handlebars
-```
-
-If you don't need to compile templates on the client side, you can
-replace the above with this to save space / time:
-
-```js
+```javascript
 //= require handlebars.runtime
 ```
 
-You can also include it via a regular ol' `javascript_include_tag` call:
+If you still need to compile Handlebars templates on the client side,
+you'll want to require the full `handlebars`, instead:
 
-```ruby
-javascript_include_tag("handlebars")
-// or
-javascript_include_tag("handlebars.runtime")
+```javascript
+//= require handlebars
 ```
 
-## Installation
+## Adding templates
 
-Add this to your Gemfile, preferably in the `:assets` gem group:
+Place your templates in `app/assets/templates/` and require all of them
+in your JavaScript manifest (`application.js`):
 
-    gem "templebars"
+```javascript
+//= require_tree ../templates
+```
 
-Done. Go forth, grasshopper.
+Your template file names must be suffixed with the ".handlebars" or
+".hbs" extensions in order for Templebars to handle them.
+
+## Using templates
+
+Your templates will be available on the client side via their paths in a
+global `Templates` object. For example, a template at
+`app/assets/templates/user.handlebars` can be rendered with:
+
+```javascript
+Templates['user'](context);
+```
+
+And a template at `app/assets/templates/users/detail.handlebars` with:
+
+```javascript
+Templates['users/detail'](context);
+```
 
 *This gem is maintained by [Stovepipe Studios][stovepipe].*
 
