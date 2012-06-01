@@ -40,8 +40,8 @@ in your JavaScript manifest (`application.js`):
 //= require_tree ../templates
 ```
 
-Your template file names must be suffixed with the ".handlebars" or
-".hbs" extensions in order for Templebars to handle them.
+Your template file names must be suffixed with the ".js.handlebars" or
+".js.hbs" extensions in order for Templebars to handle them.
 
 ## Using templates
 
@@ -57,6 +57,15 @@ And a template at `app/assets/templates/users/detail.handlebars` with:
 
 ```javascript
 Templates['users/detail'](context);
+```
+
+## Using a different global Templates object
+
+To use Templebars with, for example, Ember.js, add the following to your
+`config/application.rb`:
+
+```ruby
+config.templebars_template_global = "Ember.TEMPLATES"
 ```
 
 *This gem is maintained by [Stovepipe Studios][stovepipe].*
