@@ -37,7 +37,7 @@ module Templebars
       end
 
       def handlebars_js
-        path = File.expand_path( "../../../vendor/assets/javascripts/handlebars.js" )
+        path = File.expand_path( "../../../../vendor/assets/javascripts/handlebars.js", __FILE__ )
         File.read( path )
       end
     end
