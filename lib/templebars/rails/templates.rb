@@ -21,7 +21,7 @@ module Templebars
       protected
 
       def register_template_js( name, precompiled_js )
-        global = Rails.application.config.templebars_template_global || "Templates"
+        global = ::Rails.application.config.templebars_template_global || "Templates"
         <<-JS
           this.#{global} || (this.#{global} = {});
           this.#{global}["#{name}"] = Handlebars.template(#{precompiled_js});
