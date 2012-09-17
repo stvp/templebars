@@ -70,6 +70,7 @@ config.templebars_template_global = "Ember.TEMPLATES"
 
 # Version History
 
+* **0.2.1** Update execjs and sprockets dependencies.
 * **0.2.0** Update Handlebars to 1.0.rc.1.
 
 *This gem is maintained by [Stovepipe Studios][stovepipe].*
