@@ -68,6 +68,10 @@ To use Templebars with, for example, Ember.js, add the following to your
 config.templebars_template_global = "Ember.TEMPLATES"
 ```
 
+# Version History
+
+* **0.2.0** Update Handlebars to 1.0.rc.1.
+
 *This gem is maintained by [Stovepipe Studios][stovepipe].*
 
 [stovepipe]: http://www.stovepipestudios.com
