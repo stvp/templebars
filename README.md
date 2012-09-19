@@ -70,6 +70,7 @@ config.templebars_template_global = "Ember.TEMPLATES"
 
 # Version History
 
+* **0.2.2** Update Handlebars to a custom 1.0.rc.1 build, which fixes [issue #317](https://github.com/wycats/handlebars.js/issues/317).
 * **0.2.1** Update execjs and sprockets dependencies.
 * **0.2.0** Update Handlebars to 1.0.rc.1.
 
