@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "sprockets", ">= 2.0.0"
   s.add_dependency "execjs", "~> 1.4.0"
-  s.add_dependency "tilt"> "~> 1.4.1"
+  s.add_dependency "tilt", "~> 1.4.1"
   s.add_development_dependency "rake"
 
   s.files        = `git ls-files`.split("\n")
