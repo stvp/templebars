@@ -70,6 +70,8 @@ config.templebars_template_global = "Ember.TEMPLATES"
 
 # Version History
 
+* **0.4.0** Drop support for old Rails versions, clean up code, bump sprockets
+  and execjs version dependencies.
 * **0.3.1** Relax tilt dependency version to ~> 1.3.
 * **0.3.0** Update Handlebars to 1.0.0, clean up gem dependencies.
 * **0.2.2** Update Handlebars to a custom 1.0.rc.1 build, which fixes [issue #317](https://github.com/wycats/handlebars.js/issues/317).
