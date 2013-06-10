@@ -1,2 +1,4 @@
-require 'templebars/rails'
+require 'templebars/version'
+require 'templebars/templates'
+require 'templebars/rails/engine'
 
