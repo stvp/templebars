@@ -80,6 +80,7 @@ config.templebars_template_global = "Ember.TEMPLATES"
 
 # Version History
 
+* **0.5.0** Add support for partials, upgrade Handlebars to 4.0.5.
 * **0.4.0** Drop support for old Rails versions, clean up code, bump sprockets
   and execjs version dependencies.
 * **0.3.1** Relax tilt dependency version to ~> 1.3.
