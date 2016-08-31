@@ -5,6 +5,8 @@ module Templebars
   # Tilt template renderer for precompiling Handlebars templates and storing
   # them in a global Templates object.
   class HandlebarsTemplate < ::Tilt::Template
+    PARTIAL = /^partials\//
+
     def self.default_mime_type
       "application/javascript"
     end
@@ -19,11 +21,15 @@ module Templebars
     def prepare; end
 
     def register_template_js( name, precompiled_js )
-      global = ::Rails.application.config.templebars_template_global
-      <<-JS
-        this.#{global} || (this.#{global} = {});
-        this.#{global}["#{name}"] = Handlebars.template(#{precompiled_js});
-      JS
+      if name =~ PARTIAL
+        "Handlebars.registerPartial('#{name.sub( PARTIAL, '' )}', Handlebars.template(#{precompiled_js}));"
+      else
+        global = ::Rails.application.config.templebars_template_global
+        <<-JS
+          this.#{global} || (this.#{global} = {});
+          this.#{global}['#{name}'] = Handlebars.template(#{precompiled_js});
+        JS
+      end
     end
 
     def precompile( template )

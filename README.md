@@ -59,6 +59,16 @@ And a template at `app/assets/templates/users/detail.handlebars` with:
 Templates['users/detail'](context);
 ```
 
+## Using partials
+
+Place partials in `app/assets/templates/partials/` and they will be
+available to all of your Handlebars templates. For example,
+`app/assets/templates/partials/big_button.js.hbs` can be included with:
+
+```
+{{> big_button }}
+```
+
 ## Using a different global Templates object
 
 To use Templebars with, for example, Ember.js, add the following to your
