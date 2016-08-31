@@ -13,27 +13,29 @@ module Templebars
 
     def evaluate( scope, locals, &block )
       name = scope.logical_path.sub( /^templates\//, "" )
-      register_template_js( name, precompile( data ) )
+      register_template( name, self.data )
     end
 
     protected
 
     def prepare; end
 
-    def register_template_js( name, precompiled_js )
+    def register_template( name, js )
+      template = self.handlebars_template( js )
       if name =~ PARTIAL
-        "Handlebars.registerPartial('#{name.sub( PARTIAL, '' )}', Handlebars.template(#{precompiled_js}));"
+        "Handlebars.registerPartial('#{name.sub( PARTIAL, '' )}', #{template});"
       else
         global = ::Rails.application.config.templebars_template_global
         <<-JS
           this.#{global} || (this.#{global} = {});
-          this.#{global}['#{name}'] = Handlebars.template(#{precompiled_js});
+          this.#{global}['#{name}'] = #{template};
         JS
       end
     end
 
-    def precompile( template )
-      runtime.call( "Handlebars.precompile", template, { data: {} } )
+    def handlebars_template( js )
+      spec = runtime.call( "Handlebars.precompile", js )
+      "Handlebars.template(#{spec})"
     end
 
     def runtime
