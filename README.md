@@ -1,5 +1,9 @@
 # templebars
 
+## No longer maintained
+
+This gem targets an outdated version of Rails and is no longer maintained.
+
 `templebars` allows you to precomile [Handlebars][handlebars] templates
 in Rails and make them available globally on the client-side in a
 `Templates` object.
@@ -89,8 +93,5 @@ config.templebars_template_global = "Ember.TEMPLATES"
 * **0.2.1** Update execjs and sprockets dependencies.
 * **0.2.0** Update Handlebars to 1.0.rc.1.
 
-*This gem is maintained by [Stovepipe Studios][stovepipe].*
-
-[stovepipe]: http://www.stovepipestudios.com
 [handlebars]: http://handlebarsjs.com/
 
